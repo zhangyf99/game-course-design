@@ -17,11 +17,9 @@ public class PlayerHealth : MonoBehaviour
     //red
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
-
-    Animator anim;
     AudioSource playerAudio;
     //a reference to another scr ipt
-    PlayerMovement playerMovement;
+    fps_PlayerManager playerMovement;
     PlayerShooting playerShooting;
     bool isDead;
     bool damaged;
@@ -29,9 +27,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake ()
     {
-        anim = GetComponent <Animator> ();
         playerAudio = GetComponent <AudioSource> ();
-        playerMovement = GetComponent <PlayerMovement> ();
+        playerMovement = GetComponent <fps_PlayerManager> ();
         //the script is on the child object GunBarrelEnd
         playerShooting = GetComponentInChildren <PlayerShooting> ();
         currentHealth = startingHealth;
@@ -75,8 +72,6 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
 
         playerShooting.DisableEffects ();
-
-        anim.SetTrigger ("Die");
 
         playerAudio.clip = deathClip;
         playerAudio.Play ();
