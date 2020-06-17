@@ -4,7 +4,7 @@ public class EnemyManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;
     public GameObject enemy;
-    public float spawnTime = 3f;
+    public float spawnTime = 20f;
     public Transform[] spawnPoints;
 
 
@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour
     {
         //para:methodName:string,time:float,repeatTime:float
         //do methodName during time repeat every repeatTime
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+        InvokeRepeating("Spawn", 0, spawnTime);
     }
 
 

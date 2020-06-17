@@ -9,7 +9,8 @@ public class fps_PlayerInput : MonoBehaviour
         get { return Cursor.lockState == CursorLockMode.Locked ? true : false; }
         set
         {
-            Cursor.visible = value;
+            //Cursor.visible = value;
+            Cursor.visible = false;
             Cursor.lockState = value ? CursorLockMode.Locked : CursorLockMode.None;
         }
     }

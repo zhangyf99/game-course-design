@@ -5,7 +5,7 @@ public class EnemyHealth : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
     //the speed the enemy sink through the floor when dead
-    public float sinkSpeed = 2.5f;
+    public float sinkSpeed = 1.5f;
     //the amount add to the player's score when the enemy dies
     public int scoreValue = 10;
     //the sound to play when the enemy dies
@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
     void Awake ()
     {
         anim = GetComponent <Animator> ();
-        enemyAudio = GetComponent <AudioSource> ();
+        //enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
 
@@ -48,9 +48,10 @@ public class EnemyHealth : MonoBehaviour
         if(isDead)
             return;
 
-        enemyAudio.Play ();
+        //enemyAudio.Play ();
 
         currentHealth -= amount;
+        //Debug.Log(amount);
             
         hitParticles.transform.position = hitPoint;
         hitParticles.Play();
@@ -71,8 +72,10 @@ public class EnemyHealth : MonoBehaviour
 
         anim.SetTrigger ("Dead");
 
-        enemyAudio.clip = deathClip;
-        enemyAudio.Play ();
+        StartSinking();
+
+        //enemyAudio.clip = deathClip;
+        //enemyAudio.Play ();
     }
 
 
@@ -81,7 +84,7 @@ public class EnemyHealth : MonoBehaviour
         //find and disabled the nav mesh agent
         GetComponent <UnityEngine.AI.NavMeshAgent> ().enabled = false;
   
-        GetComponent <Rigidbody> ().isKinematic = true;
+        //GetComponent <Rigidbody> ().isKinematic = true;
         //the state if self is sinking
         isSinking = true;
         ScoreManager.score += scoreValue;
