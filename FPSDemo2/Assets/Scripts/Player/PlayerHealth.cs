@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     AudioSource playerAudio;
     //a reference to another scr ipt
     fps_PlayerManager playerMovement;
-    PlayerShooting playerShooting;
+    Gun playerShooting;
     bool isDead;
     bool damaged;
 
@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <fps_PlayerManager> ();
         //the script is on the child object GunBarrelEnd
-        playerShooting = GetComponentInChildren <PlayerShooting> ();
+        playerShooting = GetComponentInChildren <Gun> ();
         currentHealth = startingHealth;
     }
 
@@ -71,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
 
-        playerShooting.DisableEffects ();
+        //playerShooting.DisableEffects ();
 
         playerAudio.clip = deathClip;
         playerAudio.Play ();

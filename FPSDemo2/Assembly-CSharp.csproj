@@ -62,42 +62,47 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameOverManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Portal.cs" />
+     <Compile Include="Assets\Scripts\Managers\PortalManager.cs" />
      <Compile Include="Assets\Scripts\Managers\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\Managers\Tag.cs" />
+     <Compile Include="Assets\Scripts\Managers\TimeManager.cs" />
      <Compile Include="Assets\Scripts\Managers\fps_Input.cs" />
      <Compile Include="Assets\Scripts\Managers\fps_PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Player\Gun.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerShooting.cs" />
      <Compile Include="Assets\Scripts\Player\fps_PlayerInput.cs" />
      <Compile Include="Assets\Scripts\Player\fps_PlayerParameter.cs" />
      <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
+     <None Include="Assets\Models\Key\readME keys.txt" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/游戏脚本设计/游戏/FPSDemo2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/repository/FPSDemo2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/游戏脚本设计/游戏/FPSDemo2/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/repository/FPSDemo2/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/游戏脚本设计/游戏/FPSDemo2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/repository/FPSDemo2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/游戏脚本设计/游戏/FPSDemo2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/repository/FPSDemo2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/游戏脚本设计/游戏/FPSDemo2/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/repository/FPSDemo2/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>D:/游戏脚本设计/游戏/FPSDemo2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>D:/repository/FPSDemo2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/游戏脚本设计/游戏/FPSDemo2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/repository/FPSDemo2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/游戏脚本设计/游戏/FPSDemo2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/repository/FPSDemo2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/游戏脚本设计/游戏/FPSDemo2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/repository/FPSDemo2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/unity2019.3.2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

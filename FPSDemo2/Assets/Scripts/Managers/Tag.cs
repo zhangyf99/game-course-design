@@ -9,4 +9,5 @@ public class Tag
     // public const string enemy = "Enemy";
     // public const string fader = "Fader";
     public const string mainCamera = "MainCamera";
+    public const string portalController = "portalController";
 }

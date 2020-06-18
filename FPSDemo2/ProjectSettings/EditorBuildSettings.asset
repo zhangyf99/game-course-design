@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/next.unity
+    guid: 2e7d9d886bac4b94894663213ba28789
   m_configObjects: {}

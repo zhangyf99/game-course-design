@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class fps_Camera : MonoBehaviour
 {
-    public Vector2 mouseLookSensitivity = new Vector2(5, 5);
+    public Vector2 mouseLookSensitivity = new Vector2(4.5f, 4.5f);
     public Vector2 rotationXlimit = new Vector2(87, -87);
     public Vector2 rotationYlimit = new Vector2(-360, 360);
     public Vector3 positionOffset = new Vector3(0, 0, -0.2f);
