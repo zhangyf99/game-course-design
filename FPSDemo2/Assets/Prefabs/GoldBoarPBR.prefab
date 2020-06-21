@@ -4989,8 +4989,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8
-  m_Center: {x: 0.31, y: 2.06, z: 0.85}
+  m_Radius: 2.18
+  m_Center: {x: 0, y: 1.17, z: 0.92}
 --- !u!114 &5633293923440097049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5048,7 +5048,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 8
+  m_StoppingDistance: 2.18
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
