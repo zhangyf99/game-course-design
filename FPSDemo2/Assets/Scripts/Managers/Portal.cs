@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Portal : MonoBehaviour
 {
     public float rotateSpeed = 50f;
-    public int portalDamage = 20;
-    public float destroyTime = 15f;
+    //public int portalDamage = 20;
+    //public float destroyTime = 15f;
+    public EnemyHealth protectorHealth;
 
+    /*
     private PortalManager portalManager;
     private bool isPortal = false;
     private PlayerHealth playerHealth;
@@ -25,10 +28,12 @@ public class Portal : MonoBehaviour
         portalManager.exist--;
         Destroy(gameObject);
     }
+    */
 
     // Start is called before the first frame update
     void Start()
     {
+        /*
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         portalManager = GameObject.FindGameObjectWithTag("portalController").GetComponent<PortalManager>();
         index = portalManager.spawnPointIndex;
@@ -50,6 +55,7 @@ public class Portal : MonoBehaviour
             }
         }
         Invoke("Refresh", destroyTime);
+        */
     }
 
     // Update is called once per frame
@@ -60,8 +66,9 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(protectorHealth.currentHealth <= 0 && other.tag == "Player")
         {
+            /*
             if(isPortal)
             {
                 SceneManager.LoadScene("next");
@@ -73,9 +80,11 @@ public class Portal : MonoBehaviour
                     playerHealth.TakeDamage(portalDamage);
                 }
             }
-
             portalManager.hasGenerated[index] = false;
             portalManager.exist--;
+            */
+
+            GameObject.FindGameObjectWithTag("portalController").GetComponent<PortalManager>().keyGet++;
             Destroy(gameObject);
         }
     }
