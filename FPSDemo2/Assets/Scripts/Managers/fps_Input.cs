@@ -23,7 +23,7 @@ public class fps_Input : MonoBehaviour
             if(buttons.Count == 0)
             {
                 addButton("Fire", KeyCode.Mouse0);
-                addButton("Reload", KeyCode.R);   // 换弹
+                //addButton("Reload", KeyCode.R);   // 换弹
                 addButton("Jump", KeyCode.Space);
                 addButton("Crouch", KeyCode.C);   // 蹲伏
                 addButton("Sprint", KeyCode.LeftShift);   // 冲刺
