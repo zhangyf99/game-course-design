@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;
     //the sound to play when the enemy dies
     public AudioClip deathClip;
+    public bool isDead;
 
 
     Animator anim;
@@ -18,7 +19,7 @@ public class EnemyHealth : MonoBehaviour
     ParticleSystem hitParticles;
     //reference to the capsule collider
     CapsuleCollider capsuleCollider;
-    bool isDead;
+    
     bool isSinking;
 
 

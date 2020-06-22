@@ -47,7 +47,6 @@ public class menu : MonoBehaviour
                 fileStream = File.Create(Application.dataPath + "/StreamingAssets/bin.txt");
                 bf.Serialize(fileStream, save);
                 fileStream.Close();
-                SceneManager.LoadScene("main1");
                 SceneManager.LoadScene("Level 01");
             }
             else if(pos == 1)
@@ -84,12 +83,12 @@ public class menu : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.DownArrow))
         {
-            pos = (pos == 2) ? 0 : ++pos;
+            pos = (pos == 2) ? 0 : pos + 1;
             show();
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            pos = (pos == 0) ? 2 : --pos;
+            pos = (pos == 0) ? 2 : pos - 1;
             show();
         }
     }
