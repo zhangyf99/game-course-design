@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portal: {fileID: 170560, guid: cc5de5e674870ca479a40105f80555ad, type: 3}
   protector: {fileID: 104722, guid: 2f8e5dcb17eda3542bf9cd4ef63425e3, type: 3}
-  boss: {fileID: 100000, guid: ffdde77c7de2ec246907b187471ed7d0, type: 3}
+  boss: {fileID: 8776351927170160284, guid: 32900556113619e45adbb1ebee553c42, type: 3}
   spawnPoints:
   - {fileID: 838835234}
   - {fileID: 1765177041}
@@ -32483,7 +32483,7 @@ GameObject:
   - component: {fileID: 2008618903}
   m_Layer: 5
   m_Name: 'TimeText '
-  m_TagString: Untagged
+  m_TagString: TimeController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32520,6 +32520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDown: 120
+  timeFlying: 1
 --- !u!114 &2008618904
 MonoBehaviour:
   m_ObjectHideFlags: 0

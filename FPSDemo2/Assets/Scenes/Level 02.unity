@@ -34524,7 +34524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portal: {fileID: 170560, guid: cc5de5e674870ca479a40105f80555ad, type: 3}
   protector: {fileID: 104722, guid: 2f8e5dcb17eda3542bf9cd4ef63425e3, type: 3}
-  boss: {fileID: 100000, guid: ffdde77c7de2ec246907b187471ed7d0, type: 3}
+  boss: {fileID: 8776351927170160284, guid: 32900556113619e45adbb1ebee553c42, type: 3}
   spawnPoints:
   - {fileID: 365160908}
   - {fileID: 1766500492}
@@ -36023,8 +36023,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.46
-  m_Height: 6
+  m_Radius: 0.82
+  m_Height: 2.02
   m_Direction: 2
   m_Center: {x: 0.12, y: -0.19, z: 0.46}
 --- !u!82 &1181789570
@@ -36135,13 +36135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10000
+  startingHealth: 300
   currentHealth: 0
   healthSlider: {fileID: 1315240430}
   damageImage: {fileID: 1810214837}
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  cannotHurt: 0
 --- !u!114 &1181789572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41576,7 +41577,7 @@ GameObject:
   - component: {fileID: 1580812240}
   m_Layer: 5
   m_Name: 'TimeText '
-  m_TagString: Untagged
+  m_TagString: TimeController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41613,6 +41614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDown: 360
+  timeFlying: 1
 --- !u!114 &1580812241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51808,7 +51810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992304633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.77, y: -9.026, z: 106.16}
+  m_LocalPosition: {x: 0.22, y: -10.94, z: 106.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
