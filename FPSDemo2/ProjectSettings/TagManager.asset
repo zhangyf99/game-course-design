@@ -12,6 +12,8 @@ TagManager:
   - doorBack
   - doorFront
   - TimeController
+  - MiniMap
+  - Hint
   layers:
   - Default
   - TransparentFX
