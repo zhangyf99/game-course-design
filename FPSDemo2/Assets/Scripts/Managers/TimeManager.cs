@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     //the time to count
-    int countDown = 30;
+    public int countDown = 120;
 
     // Start is called before the first frame update
     void Start()
