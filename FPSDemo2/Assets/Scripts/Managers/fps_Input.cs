@@ -27,6 +27,7 @@ public class fps_Input : MonoBehaviour
                 addButton("Jump", KeyCode.Space);
                 addButton("Crouch", KeyCode.C);   // 蹲伏
                 addButton("Sprint", KeyCode.LeftShift);   // 冲刺
+                addButton("Map", KeyCode.Keypad1);   // 地图
             }
         }
 

@@ -6,7 +6,6 @@ public class TimeManager : MonoBehaviour
 {
     //the time to count
     public int countDown = 120;
-    public bool timeFlying = true;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,7 @@ public class TimeManager : MonoBehaviour
 	{
         if(countDown > 0)
 		{
-            countDown = (timeFlying) ? countDown - 1 : countDown;
+            countDown--;
             GetComponent<UnityEngine.UI.Text>().text = "Time:" + countDown + "s";
         }
         else

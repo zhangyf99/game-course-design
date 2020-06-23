@@ -19,6 +19,8 @@ public class fps_PlayerParameter : MonoBehaviour
     public bool inputFire;
     [HideInInspector]
     public bool inputReload;
+    [HideInInspector]
+    public bool inputMap;
 
     // Start is called before the first frame update
     void Start()

@@ -23,7 +23,6 @@ public class PlayerHealth : MonoBehaviour
     Gun playerShooting;
     bool isDead;
     bool damaged;
-    public bool cannotHurt = false;
 
 
     void Awake ()
@@ -53,11 +52,6 @@ public class PlayerHealth : MonoBehaviour
     //enemy calls the function 
     public void TakeDamage (int amount)
     {
-        if(cannotHurt)
-        {
-            return;
-        }
-
         damaged = true;
 
         currentHealth -= amount;

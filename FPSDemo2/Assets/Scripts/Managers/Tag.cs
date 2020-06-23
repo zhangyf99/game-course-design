@@ -10,5 +10,4 @@ public class Tag
     // public const string fader = "Fader";
     public const string mainCamera = "MainCamera";
     public const string portalController = "portalController";
-    public const string timeController = "TimeController";
 }

@@ -27,6 +27,7 @@ public class fps_PlayerInput : MonoBehaviour
         parameter.inputSprint = input.getButton("Sprint");
         parameter.inputFire = input.getButton("Fire");
         parameter.inputReload = input.getbuttonDown("Reload");
+        parameter.inputMap = input.getbuttonDown("Map");
     }
 
     // Start is called before the first frame update
