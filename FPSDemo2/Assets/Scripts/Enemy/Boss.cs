@@ -27,6 +27,8 @@ public class Boss : MonoBehaviour
         if(health.isDead && !haswrite)
         {
             haswrite = true;
+            GameObject.FindGameObjectWithTag("TimeController").GetComponent<TimeManager>().timeFlying = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().cannotHurt = true;
             if (File.Exists(Application.dataPath + "/StreamingAssets/bin.txt"))
             {
                 FileStream fileStream = File.Open(Application.dataPath + "/StreamingAssets/bin.txt", FileMode.Open);
@@ -37,7 +39,7 @@ public class Boss : MonoBehaviour
                 bf.Serialize(fileStream, save);
                 fileStream.Close();
                 level = save.level;
-                Invoke("load", 1.0f);
+                Invoke("load", 1.5f);
             }
         }
     }
@@ -46,7 +48,7 @@ public class Boss : MonoBehaviour
     {
         if (level == 1)
         {
-            SceneManager.LoadScene("Level 02");
+            SceneManager.LoadScene("next");
         }
         else if(level == 2)
         {

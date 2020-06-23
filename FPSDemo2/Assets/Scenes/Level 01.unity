@@ -1703,7 +1703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portal: {fileID: 170560, guid: cc5de5e674870ca479a40105f80555ad, type: 3}
-  protector: {fileID: 104722, guid: 2f8e5dcb17eda3542bf9cd4ef63425e3, type: 3}
+  protector: {fileID: 165732, guid: bc136a9faf56d7f4ab6c975c598b29d2, type: 3}
   boss: {fileID: 8776351927170160284, guid: 32900556113619e45adbb1ebee553c42, type: 3}
   spawnPoints:
   - {fileID: 838835234}
@@ -16442,9 +16442,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 200
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 200
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -32175,7 +32175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10000
+  startingHealth: 200
   currentHealth: 0
   healthSlider: {fileID: 1200203499}
   damageImage: {fileID: 396022535}
