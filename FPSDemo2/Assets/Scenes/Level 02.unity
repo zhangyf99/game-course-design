@@ -45873,7 +45873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1181789571}
   timeManager: {fileID: 1580812240}
-  InfoUI: {fileID: 0}
+  InfoUI: {fileID: 200034335}
 --- !u!95 &1866212391
 Animator:
   serializedVersion: 3
