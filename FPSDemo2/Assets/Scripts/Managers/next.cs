@@ -10,7 +10,7 @@ public class next : MonoBehaviour
     public Text exit;
     //public GameObject InfoUI;
 
-    private bool pos = false;
+    private bool pos = true;
 
     // Start is called before the first frame update
     void Start()
