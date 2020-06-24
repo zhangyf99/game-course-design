@@ -14,6 +14,7 @@ TagManager:
   - TimeController
   - MiniMap
   - Hint
+  - InfoUI
   layers:
   - Default
   - TransparentFX

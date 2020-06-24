@@ -12,6 +12,7 @@ public class menu : MonoBehaviour
     public Text start;
     public Text exit;
     public Text continued;
+    //public GameObject InfoUI;
 
     private BinaryFormatter bf = new BinaryFormatter();   // 二进制格式化程序
     private FileStream fileStream;
@@ -48,6 +49,11 @@ public class menu : MonoBehaviour
                 bf.Serialize(fileStream, save);
                 fileStream.Close();
                 SceneManager.LoadScene("Level 01");
+                //GameObject.Find("InfoUI").SetActive(true);
+                //InfoUI.SetActive(true);
+                //GameObject.Find("HUDCanvas/InfoUI").SetActive(true);
+                //GameObject root = GameObject.Find("HUDCanvas");
+                //root.transform.Find("InfoUI").gameObject.SetActive(true);
             }
             else if(pos == 1)
             {
@@ -64,6 +70,12 @@ public class menu : MonoBehaviour
                     else
                     {
                         SceneManager.LoadScene("Level 0" + (readSave.level + 1).ToString());
+                        //GameObject.FindGameObjectWithTag("InfoUI").SetActive(true);
+                        //GameObject.Find("InfoUI").SetActive(true);
+                        //InfoUI.SetActive(true);
+                        //GameObject.Find("HUDCanvas/InfoUI").SetActive(true);
+                        //GameObject root = GameObject.Find("HUDCanvas");
+                        //root.transform.Find("InfoUI").gameObject.SetActive(true);
                     }
                 }
                 else

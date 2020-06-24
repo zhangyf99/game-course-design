@@ -8,6 +8,7 @@ public class GameOverManager : MonoBehaviour
     public PlayerHealth playerHealth;
 
     public TimeManager timeManager;
+    public GameObject InfoUI;
 
     Animator anim;
 
@@ -28,6 +29,8 @@ public class GameOverManager : MonoBehaviour
             anim.SetTrigger("GameOver");
             GameObject.FindGameObjectWithTag("TimeController").GetComponent<TimeManager>().timeFlying = false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().cannotHurt = true;
+            //GameObject.FindGameObjectWithTag("UI").SetActive(false);
+            InfoUI.SetActive(true);
             Invoke("load", 5.0f);
         }
     }
@@ -35,5 +38,7 @@ public class GameOverManager : MonoBehaviour
     private void load()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //GameObject.FindGameObjectWithTag("InfoUI").SetActive(true);
+        InfoUI.SetActive(false);
     }
 }

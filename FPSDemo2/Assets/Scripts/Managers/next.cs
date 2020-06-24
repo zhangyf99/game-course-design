@@ -8,6 +8,7 @@ public class next : MonoBehaviour
 {
     public Text nextLevel;
     public Text exit;
+    //public GameObject InfoUI;
 
     private bool pos = false;
 
@@ -25,6 +26,10 @@ public class next : MonoBehaviour
             if(pos)
             {
                 SceneManager.LoadScene("Level 02");
+                //GameObject.FindGameObjectWithTag("InfoUI").SetActive(true);
+                //InfoUI.SetActive(true);
+                //GameObject root = GameObject.Find("HUDCanvas");
+                //root.transform.Find("InfoUI").gameObject.SetActive(true);
             }
             else
             {

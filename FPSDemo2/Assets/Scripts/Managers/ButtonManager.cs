@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class ButtonManager : MonoBehaviour
         hintShow = Hint.activeSelf;
         MapButton = GameObject.Find("MapButton").GetComponent<Button>();
         MapText = GameObject.Find("MapText").GetComponent<Text>();
-        MapButton.onClick.AddListener(MapOnClick);
+        //MapButton.onClick.AddListener(MapOnClick);
     }
 
     void Update()
@@ -34,6 +35,11 @@ public class ButtonManager : MonoBehaviour
         {
             HintOnClick();
             //Debug.Log(MapText.text);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            BackMenu();
         }
     }
 
@@ -85,4 +91,10 @@ public class ButtonManager : MonoBehaviour
         }
         hintShow = !hintShow;
     }
+
+    public void BackMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

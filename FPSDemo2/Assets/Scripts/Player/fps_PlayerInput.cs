@@ -26,7 +26,7 @@ public class fps_PlayerInput : MonoBehaviour
         parameter.inputJump = input.getButton("Jump");
         parameter.inputSprint = input.getButton("Sprint");
         parameter.inputFire = input.getButton("Fire");
-        parameter.inputReload = input.getbuttonDown("Reload");
+        //parameter.inputReload = input.getbuttonDown("Reload");
         parameter.inputMap = input.getbuttonDown("Map");
     }
 
