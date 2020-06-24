@@ -27,10 +27,10 @@ public class GameOverManager : MonoBehaviour
         if (playerHealth.currentHealth <= 0 || timeManager.countDown==0)
         {
             anim.SetTrigger("GameOver");
-            GameObject.FindGameObjectWithTag("TimeController").GetComponent<TimeManager>().timeFlying = false;
+            //GameObject.FindGameObjectWithTag("TimeController").GetComponent<TimeManager>().timeFlying = false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().cannotHurt = true;
             //GameObject.FindGameObjectWithTag("UI").SetActive(false);
-            InfoUI.SetActive(true);
+            InfoUI.SetActive(false);
             Invoke("load", 5.0f);
         }
     }
@@ -39,6 +39,6 @@ public class GameOverManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //GameObject.FindGameObjectWithTag("InfoUI").SetActive(true);
-        InfoUI.SetActive(false);
+        InfoUI.SetActive(true);
     }
 }
