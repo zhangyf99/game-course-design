@@ -56,7 +56,7 @@ public class PortalManager : MonoBehaviour
         }
         InvokeRepeating("Spawn", spawnTime, spawnTime);
         */
-        keyText.text = "钥匙 " + keyGet + "/6";
+        keyText.text = "KEY " + keyGet + "/6";
 
         for (int i = 0; i < spawnPoints.Length && i < ProtectorSpawnPoints.Length; i++)
         {
@@ -72,7 +72,7 @@ public class PortalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        keyText.text = "钥匙 " + keyGet + "/6";
+        keyText.text = "KEY " + keyGet + "/6";
         if(!hasBoss && keyGet == 6)
         {
             hasBoss = true;

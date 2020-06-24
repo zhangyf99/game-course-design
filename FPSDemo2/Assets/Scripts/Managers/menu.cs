@@ -58,7 +58,7 @@ public class menu : MonoBehaviour
                     fileStream.Close();
                     if (readSave.level >= 2)
                     {
-                        message.text = "您已通过全部关卡";
+                        message.text = "You have passed all levels";
                         Invoke("endMessage", 1.0f);
                     }
                     else
@@ -68,7 +68,7 @@ public class menu : MonoBehaviour
                 }
                 else
                 {
-                    message.text = "没有存档记录";
+                    message.text = "No archived records";
                     Invoke("endMessage", 1.0f);
                 }
             }

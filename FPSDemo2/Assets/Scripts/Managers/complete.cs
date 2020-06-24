@@ -14,16 +14,19 @@ public class complete : MonoBehaviour
     void Start()
     {
         InvokeRepeating("counter", 1.0f, 1.0f);
-        hint.text = last + " 秒后为您返回主菜单页...";
+        hint.text = "Return to the start menu in " + last + " seconds...";
     }
 
     private void counter()
     {
         last--;
-        hint.text = last + " 秒后为您返回主菜单页...";
-        if(last <= 0)
+        if (last < 0)
         {
             SceneManager.LoadScene("menu");
+        }
+        else
+        {
+            hint.text = "Return to the start menu in " + last + " seconds...";
         }
     }
 

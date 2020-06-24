@@ -427,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28, y: 83}
-  m_SizeDelta: {x: 606.6, y: 99.4}
+  m_AnchoredPosition: {x: -0.0000038146973, y: 85.5}
+  m_SizeDelta: {x: 799.36, y: 104.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871976316
 MonoBehaviour:
@@ -463,10 +463,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 72
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 4
     m_MaxSize: 78
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -474,7 +474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u606D\u559C\u901A\u5173\uFF01"
+  m_Text: Congratulations on passing all levels!
 --- !u!222 &871976318
 CanvasRenderer:
   m_ObjectHideFlags: 0

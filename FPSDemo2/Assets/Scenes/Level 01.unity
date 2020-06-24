@@ -16135,11 +16135,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 36
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -16186,8 +16186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72, y: -32}
-  m_SizeDelta: {x: 158.7, y: 65.5}
+  m_AnchoredPosition: {x: 99.8, y: -50}
+  m_SizeDelta: {x: 166.4, y: 65.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1148447407
 GameObject:
@@ -32182,6 +32182,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  cannotHurt: 0
 --- !u!114 &1749601732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32774,6 +32775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDown: 360
+  timeFlying: 1
 --- !u!114 &2008618904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39090,6 +39092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
   attackDamage: 10
+  hasAttackAnimation: 0
 --- !u!114 &6976427495449500907
 MonoBehaviour:
   m_ObjectHideFlags: 0
