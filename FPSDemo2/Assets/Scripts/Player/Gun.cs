@@ -2,57 +2,67 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public abstract class Gun : MonoBehaviour
 {
+    //damege per shot
     public int damagePerShot = 20;
     //the range of bullet
     public float range = 100f;
     //the most num to fire in one second
     public float fireRate = 15f;
+    protected int shootableMask;
+    protected RaycastHit shootHit;
 
     public Camera fpsCam;
-    int shootableMask;
-    RaycastHit shootHit;
-    public ParticleSystem gunFlash;
-    AudioSource gunAudio;
+    public AudioSource shootAudio;
+    public AudioSource reloadAudio;
+    public AudioClip shootClip;
+    public AudioClip reloadLeftClip;
+    public AudioClip reloadOutOfClip;
+    public Transform MuzzlePoint;
+    public Transform CasingPoint;
 
-    private float nextTimeToFire;
+    public ParticleSystem MuzzleParticle;
+    public ParticleSystem CasingParticle;
+
+    //ammo num in a mag
+    public int AmmoInMag = 30;
+    //the sum num of ammo
+    public int MaxAmmoCarried = 120;
+    public GameObject BulletPrefab;
+
+    protected int currentAmmo;
+    protected int currentMaxAmmoCarried;
+    protected float nextTimeToFire;
+    protected Animator gunAnimator;
+    protected AnimatorStateInfo gunStateInfo;
+    protected float orginFOV;
+    protected bool isAiming=false;
 
     void Awake()
     {
         //find the enemy layer befored by "Shootable"
+        //shootableMask = LayerMask.GetMask("Shootable");
+        //gunAudio = GetComponent<AudioSource>();
+    }
+
+    protected virtual void Start() {
         shootableMask = LayerMask.GetMask("Shootable");
-        gunAudio = GetComponent<AudioSource>();
+        shootAudio = GetComponent<AudioSource>();
+        currentAmmo = AmmoInMag;
+        currentMaxAmmoCarried = MaxAmmoCarried;
+        gunAnimator = GetComponent<Animator>();
+        orginFOV = fpsCam.fieldOfView;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
-        {
-            nextTimeToFire = Time.time + 1f / fireRate;
-            Shoot();
-            gunFlash.Play();
-        }
-    }
+  
 
-    void Shoot()
-    {
-        gunAudio.Play();
+    protected abstract void Shoot();
 
-        if (Physics.Raycast(fpsCam.transform.position,fpsCam.transform.forward,out shootHit, range,shootableMask))
-        {
-            EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                //para:damege amount,collision point(special effect to be added)
-                enemyHealth.TakeDamage(damagePerShot, shootHit.point);
-            }
-            //para_2:the tail of gunline:collision point/shoot point,1 correspond to the tail of the gun
-            //gunLine.SetPosition(1, shootHit.point);
-        }
+    protected abstract void Reload();
 
-    }
+    protected abstract void CreateBullet();
 
+    protected abstract void Aim();
 
 }

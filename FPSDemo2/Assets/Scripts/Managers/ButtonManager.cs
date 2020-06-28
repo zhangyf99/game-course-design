@@ -16,7 +16,7 @@ public class ButtonManager : MonoBehaviour
     void Start()
     {
         Minimap = GameObject.FindWithTag("MiniMap");
-        Hint = GameObject.FindWithTag("Hint");
+        //Hint = GameObject.FindWithTag("Hint");
         hintShow = Hint.activeSelf;
         MapButton = GameObject.Find("MapButton").GetComponent<Button>();
         MapText = GameObject.Find("MapText").GetComponent<Text>();

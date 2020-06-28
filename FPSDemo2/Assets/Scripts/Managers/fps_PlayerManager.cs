@@ -32,8 +32,10 @@ public class fps_PlayerManager : MonoBehaviour
 
     public float sprintSpeed = 10.0f;
     public float sprintJumpSpeed = 8.0f;
-    public float normalSpeed = 6.0f;
-    public float normalJumpSpeed = 7.0f;
+    public float normalSpeed = 0.1f;
+    public float normalJumpSpeed = 1.0f;
+    public float walkSpeed = 6.0f;
+    public float walkJumpSpeed = 7.0f;
     public float crouchSpeed = 2.0f;
     public float crouchJumpSpeed = 5.0f;
     public float crouchDeltaHeight = 0.5f;   // 蹲伏时下降高度
@@ -57,6 +59,7 @@ public class fps_PlayerManager : MonoBehaviour
     private CharacterController controller;
     private fps_PlayerParameter parameter;
     private Vector3 moveDirection = Vector3.zero;
+    private Animator animator;
 
     private void currentSpeed()
     {
@@ -67,8 +70,8 @@ public class fps_PlayerManager : MonoBehaviour
                 jumpSpeed = normalJumpSpeed;
                 break;
             case PlayerState.Walk:
-                speed = normalSpeed;
-                jumpSpeed = normalJumpSpeed;
+                speed = walkSpeed;
+                jumpSpeed = walkJumpSpeed;
                 break;
             case PlayerState.Crouch:
                 speed = crouchSpeed;
@@ -79,6 +82,8 @@ public class fps_PlayerManager : MonoBehaviour
                 jumpSpeed = sprintJumpSpeed;
                 break;
         }
+        //Debug.Log(speed);
+        animator.SetFloat("speed",speed);
     }
 
     private void updateCrouch()
@@ -176,6 +181,7 @@ public class fps_PlayerManager : MonoBehaviour
 
         updateCrouch();
         currentSpeed();
+        //Debug.Log(speed); 
     }
 
     // Start is called before the first frame update
@@ -190,6 +196,7 @@ public class fps_PlayerManager : MonoBehaviour
         standardCameraHeight = mainCamera.localPosition.y;
         crouchCameraHeight = standardCameraHeight - crouchDeltaHeight; 
         controller = this.GetComponent<CharacterController>();
+        animator = this.GetComponentInChildren<Animator>();
         parameter = this.GetComponent<fps_PlayerParameter>();
         normalControllerCenter = controller.center;
         normalControllerHeight = controller.height;

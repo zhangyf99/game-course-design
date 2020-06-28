@@ -36436,7 +36436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 300
+  startingHealth: 600
   currentHealth: 0
   healthSlider: {fileID: 1315240430}
   damageImage: {fileID: 1810214837}
@@ -42067,7 +42067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f4ae186970a474eb67bbf428ebaf6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDown: 360
+  countDown: 600
   timeFlying: 1
 --- !u!114 &1580812241
 MonoBehaviour:

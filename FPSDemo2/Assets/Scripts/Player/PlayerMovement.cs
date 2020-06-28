@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
     int floorMask;
     float camRayLength = 100f;
 
+    public AnimationCurve RecoilCurve;
+    public Vector2 recoliRange;
+
+    private float currentRecoilTime;
+    private Vector2 currentRecoil;
+
     void Awake()
     {
         //get the floor layer

@@ -16,6 +16,12 @@ public class fps_Camera : MonoBehaviour
     private fps_PlayerParameter parameter;
     private Transform m;
 
+    public AnimationCurve RecoilCurve;
+    public Vector2 recoliRange;
+
+    private float currentRecoilTime;
+    private Vector2 currentRecoil;
+
     private void getMouseLook()
     {
         currentMouseLook.x = parameter.inputSmoothLook.x;
@@ -39,6 +45,7 @@ public class fps_Camera : MonoBehaviour
         x_angle = x_angle < -360 ? x_angle + 360 : x_angle;
         x_angle = x_angle > 360 ? x_angle - 360 : x_angle;
         x_angle = Mathf.Clamp(x_angle, -rotationXlimit.x, -rotationXlimit.y);
+
     }
 
 
@@ -54,6 +61,8 @@ public class fps_Camera : MonoBehaviour
     void Update()
     {
         updateInput();
+        CalculatingRecoilOffset();
+        Debug.Log(currentRecoil);
     }
 
     void LateUpdate()
@@ -64,5 +73,23 @@ public class fps_Camera : MonoBehaviour
 
         yq = Quaternion.AngleAxis(-x_angle, Vector3.left);
         m.rotation = xq * yq;
+
+        //CalculatingRecoilOffset();
     }
+
+    void CalculatingRecoilOffset()
+    {
+        currentRecoilTime += Time.deltaTime;
+        float recoilFraction = RecoilCurve.Evaluate(currentRecoilTime);
+
+        currentRecoil = Vector2.Lerp(Vector2.zero, currentRecoil, recoilFraction);
+    }
+
+    public void FireTest()
+    {
+        currentRecoil += recoliRange;
+        currentRecoilTime = 0;
+        Debug.Log(currentRecoil);
+    }
+
 }

@@ -15,6 +15,11 @@ TagManager:
   - MiniMap
   - Hint
   - InfoUI
+  - Metal
+  - Target
+  - ExplosiveBarrel
+  - FX
+  - World
   layers:
   - Default
   - TransparentFX
@@ -28,7 +33,7 @@ TagManager:
   - Shootable
   - LightMask
   - Invisible
-  - 
+  - Gun
   - 
   - 
   - 
