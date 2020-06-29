@@ -14,8 +14,8 @@ public class Portal : MonoBehaviour
 
     public EnemyHealth protectorHealth = null;
 
-    /*
     private PortalManager portalManager;
+    /*
     private bool isPortal = false;
     private PlayerHealth playerHealth;
     private int index = 0;
@@ -36,14 +36,14 @@ public class Portal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(protector != null)
+        portalManager = GameObject.FindGameObjectWithTag("portalController").GetComponent<PortalManager>();
+        if (protector != null)
         {
             protectorHealth = protector.GetComponent<EnemyHealth>();
         }
         
         /*
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        portalManager = GameObject.FindGameObjectWithTag("portalController").GetComponent<PortalManager>();
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>(); 
         index = portalManager.spawnPointIndex;
         if (!portalManager.hasPortal)
         {
@@ -96,7 +96,9 @@ public class Portal : MonoBehaviour
             portalManager.exist--;
             */
  
-            GameObject.FindGameObjectWithTag("portalController").GetComponent<PortalManager>().keyGet++;
+            portalManager.keyGet++;
+            portalManager.showKeyHint();
+
             Destroy(gameObject);
         }
     }

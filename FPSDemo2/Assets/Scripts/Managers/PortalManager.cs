@@ -19,6 +19,7 @@ public class PortalManager : MonoBehaviour
     public bool hasBoss = false;
     public GameObject keyParent;
     public GameObject protectorParent;
+    public Text keyHint;
 
     //public int exist = 0;
     //public bool hasPortal = false;
@@ -32,6 +33,7 @@ public class PortalManager : MonoBehaviour
 
     private BinaryFormatter bf = new BinaryFormatter();   // 二进制格式化程序
     private FileStream fileStream;
+    AudioSource audioSource;
 
     /*
     void Spawn()
@@ -55,6 +57,8 @@ public class PortalManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         if(PlayerPrefs.GetInt("Load", 0) == 1 && File.Exists(Application.dataPath + "/StreamingAssets/bin" +
                 PlayerPrefs.GetInt("Level", 0) + ".txt"))
         {
@@ -117,5 +121,17 @@ public class PortalManager : MonoBehaviour
             hasBoss = true;
             Instantiate(boss, bossSpawnPoint.position, bossSpawnPoint.rotation);
         }
+    }
+
+    public void showKeyHint()
+    {
+        keyHint.text = "钥匙 + 1";
+        audioSource.Play();
+        Invoke("endMessage", 1.0f);
+    }
+
+    private void endMessage()
+    {
+        keyHint.text = "";
     }
 }
