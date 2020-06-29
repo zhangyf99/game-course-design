@@ -65,4 +65,13 @@ public abstract class Gun : MonoBehaviour
 
     protected abstract void Aim();
 
+    public int GetCurrentAmmo()
+    {
+        return currentAmmo;
+    }
+
+    public int GetCurrentMaxAmmo()
+    {
+        return currentMaxAmmoCarried;
+    }
 }

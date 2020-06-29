@@ -60,6 +60,10 @@ public class fps_PlayerManager : MonoBehaviour
     private fps_PlayerParameter parameter;
     private Vector3 moveDirection = Vector3.zero;
     private Animator animator;
+    public AudioSource audioSource;
+    public AudioClip walkClip;
+    public AudioClip runClip;
+    public AudioClip takeClip;
 
     private void currentSpeed()
     {
@@ -68,10 +72,13 @@ public class fps_PlayerManager : MonoBehaviour
             case PlayerState.Idle:
                 speed = normalSpeed;
                 jumpSpeed = normalJumpSpeed;
+                audioSource.Stop();
                 break;
             case PlayerState.Walk:
                 speed = walkSpeed;
                 jumpSpeed = walkJumpSpeed;
+                audioSource.clip = walkClip;
+                audioSource.Play();
                 break;
             case PlayerState.Crouch:
                 speed = crouchSpeed;
@@ -80,6 +87,8 @@ public class fps_PlayerManager : MonoBehaviour
             case PlayerState.Run:
                 speed = sprintSpeed;
                 jumpSpeed = sprintJumpSpeed;
+                audioSource.clip = runClip;
+                audioSource.Play();
                 break;
         }
         //Debug.Log(speed);
@@ -200,7 +209,11 @@ public class fps_PlayerManager : MonoBehaviour
         parameter = this.GetComponent<fps_PlayerParameter>();
         normalControllerCenter = controller.center;
         normalControllerHeight = controller.height;
-}
+        //var audioArray = GetComponents(typeof(AudioSource));
+        //audioSource = (AudioSource)audioArray[0];
+        audioSource.clip = takeClip;
+        audioSource.Play();
+    }
 
     // Update is called once per frame
     void FixedUpdate()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AssualtRifle : Gun
 {
-    private IEnumerator ReloadCheckCoroutine;
+    private IEnumerator reloadCheckCoroutine;
     private IEnumerator doAnimCoroutine;
     private fps_Camera fps_Camera;
 
@@ -12,7 +12,9 @@ public class AssualtRifle : Gun
     {
         base.Start();
         doAnimCoroutine = DoAnim();
-        fps_Camera = FindObjectOfType<fps_Camera>(); 
+        reloadCheckCoroutine = CheckReloadAnimationEnd();
+        fps_Camera = FindObjectOfType<fps_Camera>();
+
     }
 
     private void Update()
@@ -25,12 +27,12 @@ public class AssualtRifle : Gun
             //gunFlash.Play(0);
        }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)&& currentMaxAmmoCarried > 0)
         {
             Reload();
         }
 
-                //Aim
+         //Aim
         if(Input.GetMouseButtonDown(1))
         {
             isAiming = true;
@@ -54,9 +56,19 @@ public class AssualtRifle : Gun
         reloadAudio.Play();
 
         //CheckReloadAnimationEnd();
-        //StartCoroutine(CheckReloadAnimationEnd());
-        currentAmmo = AmmoInMag;
-        currentMaxAmmoCarried -= AmmoInMag;
+        if (reloadCheckCoroutine == null)
+        {
+            reloadCheckCoroutine = CheckReloadAnimationEnd();
+        }
+        else
+        {
+            StopCoroutine(reloadCheckCoroutine);
+            reloadCheckCoroutine = null;
+            reloadCheckCoroutine = CheckReloadAnimationEnd();
+        }
+        StartCoroutine(reloadCheckCoroutine);
+        //currentAmmo = AmmoInMag;
+        //currentMaxAmmoCarried -= AmmoInMag;
         //Debug.Log("Reload");
     }
 
@@ -92,23 +104,6 @@ public class AssualtRifle : Gun
         tempBulletRb.velocity = tempBulletRb.transform.forward * 100f;
     }
 
-    private void CheckReloadAnimationEnd()
-    {
-        gunStateInfo = gunAnimator.GetCurrentAnimatorStateInfo(2);
-        Debug.Log(gunStateInfo);
-        Debug.Log(gunStateInfo.IsTag("Reload"));
-        if (gunStateInfo.IsTag("Reload"))
-        {
-            Debug.Log(gunStateInfo.normalizedTime);
-            if (gunStateInfo.normalizedTime >= 0.9f)
-            {
-                currentAmmo = AmmoInMag;
-                currentMaxAmmoCarried -= AmmoInMag;
-                return;
-            }
-        }
-    }
-
     protected override void Aim()
     {
         gunAnimator.SetBool("Aim", isAiming);
@@ -127,22 +122,20 @@ public class AssualtRifle : Gun
 
     }
 
-    /*IEnumerator CheckReloadAnimationEnd()
+    IEnumerator CheckReloadAnimationEnd()
     {
-        //Debug.Log(GunAnimator.GetCurrentAnimatorStateInfo(2).normalizedTime);
-        //yield return null;
-        GunStateInfo = GunAnimator.GetCurrentAnimatorStateInfo(2);
-        if (GunStateInfo.IsTag("ReloadAmmo"))
+        yield return null;
+        Debug.Log(gunAnimator.GetCurrentAnimatorStateInfo(2).normalizedTime);
+        gunStateInfo = gunAnimator.GetCurrentAnimatorStateInfo(2);
+        //if (gunStateInfo.IsTag("Reload"))
+        Debug.Log(gunStateInfo.normalizedTime);
+        if (gunStateInfo.normalizedTime >= 1.0f)
         {
-            Debug.Log(GunStateInfo.normalizedTime);
-            if(GunStateInfo.normalizedTime>=0.9f)
-            {
-                CurrentAmmo = AmmoInMag;
-                CurrentMaxAmmoCarried -= AmmoInMag;
-                yield break;
-            }
+            currentAmmo = AmmoInMag;
+            currentMaxAmmoCarried -= AmmoInMag;
+            yield break;
         }
-    }*/
+    }
 
     IEnumerator DoAnim()
     {

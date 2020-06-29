@@ -11,7 +11,7 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<UnityEngine.UI.Text>().text="Time:"+ countDown + "s";
+        GetComponent<UnityEngine.UI.Text>().text="时间:"+ countDown + "秒";
         InvokeRepeating("TimeCount", 0.0f, 1.0f);
     }
 
@@ -20,7 +20,7 @@ public class TimeManager : MonoBehaviour
         if(countDown > 0)
 		{
             countDown = (timeFlying) ? countDown - 1 : countDown;
-            GetComponent<UnityEngine.UI.Text>().text = "Time:" + countDown + "s";
+            GetComponent<UnityEngine.UI.Text>().text = "时间:" + countDown + "秒";
         }
         else
 		{

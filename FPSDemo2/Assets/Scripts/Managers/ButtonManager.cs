@@ -67,15 +67,15 @@ public class ButtonManager : MonoBehaviour
 
     public void MapOnClick()
     {
-        if(MapText.text == "ShowMap")
+        if(MapText.text == "显 示 地 图")
         {
             ShowMap();
-            MapText.text = "HideMap";
+            MapText.text = "隐 藏 地 图";
         }
         else
         {
             HideMap();
-            MapText.text = "ShowMap";
+            MapText.text = "显 示 地 图";
         }
     }
 

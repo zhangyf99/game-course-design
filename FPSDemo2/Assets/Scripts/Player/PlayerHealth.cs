@@ -17,7 +17,8 @@ public class PlayerHealth : MonoBehaviour
     //red
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
-    AudioSource playerAudio;
+    public AudioSource playerAudio;
+    AudioClip hurtClip;
     //a reference to another scr ipt
     fps_PlayerManager playerMovement;
     Gun playerShooting;
@@ -28,11 +29,13 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake ()
     {
-        playerAudio = GetComponent <AudioSource> ();
+        //var audioArray = GetComponents(typeof(AudioSource));
+        //playerAudio = (AudioSource)audioArray[1];
         playerMovement = GetComponent <fps_PlayerManager> ();
         //the script is on the child object GunBarrelEnd
         playerShooting = GetComponentInChildren <Gun> ();
         currentHealth = startingHealth;
+
     }
 
 

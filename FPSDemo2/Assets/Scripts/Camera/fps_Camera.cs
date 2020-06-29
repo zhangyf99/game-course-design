@@ -36,16 +36,29 @@ public class fps_Camera : MonoBehaviour
         if (parameter.inputSmoothLook == Vector2.zero)
             return;
         getMouseLook();
+
         y_angle += currentMouseLook.x;
         x_angle += currentMouseLook.y;
 
+        calculateAngle();
+
+        /*y_angle = y_angle < -360 ? y_angle + 360 : y_angle;
+        y_angle = y_angle > 360 ? y_angle - 360 : y_angle;
+        y_angle = Mathf.Clamp(y_angle, rotationYlimit.x, rotationYlimit.y);
+        x_angle = x_angle < -360 ? x_angle + 360 : x_angle;
+        x_angle = x_angle > 360 ? x_angle - 360 : x_angle;
+        x_angle = Mathf.Clamp(x_angle, -rotationXlimit.x, -rotationXlimit.y);*/
+
+    }
+
+    private void calculateAngle()
+    {
         y_angle = y_angle < -360 ? y_angle + 360 : y_angle;
         y_angle = y_angle > 360 ? y_angle - 360 : y_angle;
         y_angle = Mathf.Clamp(y_angle, rotationYlimit.x, rotationYlimit.y);
         x_angle = x_angle < -360 ? x_angle + 360 : x_angle;
         x_angle = x_angle > 360 ? x_angle - 360 : x_angle;
         x_angle = Mathf.Clamp(x_angle, -rotationXlimit.x, -rotationXlimit.y);
-
     }
 
 
@@ -62,14 +75,19 @@ public class fps_Camera : MonoBehaviour
     {
         updateInput();
         CalculatingRecoilOffset();
-        Debug.Log(currentRecoil);
+        //Debug.Log(currentRecoil);
+
+        y_angle += currentRecoil.y;
+        x_angle -= currentRecoil.x;
+        calculateAngle();
+       
     }
 
     void LateUpdate()
     {
         Quaternion xq = Quaternion.AngleAxis(y_angle, Vector3.up);
         Quaternion yq = Quaternion.AngleAxis(0, Vector3.left);
-        m.parent.rotation = xq * yq;
+        m.parent.parent.rotation = xq * yq;
 
         yq = Quaternion.AngleAxis(-x_angle, Vector3.left);
         m.rotation = xq * yq;
@@ -82,14 +100,16 @@ public class fps_Camera : MonoBehaviour
         currentRecoilTime += Time.deltaTime;
         float recoilFraction = RecoilCurve.Evaluate(currentRecoilTime);
 
-        currentRecoil = Vector2.Lerp(Vector2.zero, currentRecoil, recoilFraction);
+        //currentRecoil = Vector2.Lerp(Vector2.zero, currentRecoil, recoilFraction);
+        currentRecoil.x = Random.Range(0,currentRecoil.x);
+        currentRecoil.y = Random.Range(0, currentRecoil.y);
     }
 
     public void FireTest()
     {
         currentRecoil += recoliRange;
         currentRecoilTime = 0;
-        Debug.Log(currentRecoil);
+        //Debug.Log(currentRecoil);
     }
 
 }
