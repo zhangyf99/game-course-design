@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
     bool damaged;
     public bool cannotHurt = false;
 
+    private BinaryFormatter bf = new BinaryFormatter();   // 二进制格式化程序
+    private FileStream fileStream;
 
     void Awake ()
     {
@@ -34,8 +38,21 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent <fps_PlayerManager> ();
         //the script is on the child object GunBarrelEnd
         playerShooting = GetComponentInChildren <Gun> ();
-        currentHealth = startingHealth;
-
+        if (PlayerPrefs.GetInt("Load", 0) == 1 && File.Exists(Application.dataPath + "/StreamingAssets/bin" +
+                PlayerPrefs.GetInt("Level", 0) + ".txt"))
+        {
+            fileStream = File.Open(Application.dataPath + "/StreamingAssets/bin" +
+                PlayerPrefs.GetInt("Level", 0) + ".txt", FileMode.Open);
+            Save readSave = (Save)bf.Deserialize(fileStream);
+            fileStream.Close();
+            currentHealth = readSave.playerHealth;
+            gameObject.transform.position = new Vector3(readSave.playerPosition[0],
+                readSave.playerPosition[1], readSave.playerPosition[2]);
+        }
+        else
+        {
+            currentHealth = startingHealth;
+        }      
     }
 
 

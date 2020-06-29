@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public abstract class Gun : MonoBehaviour
 {
@@ -39,6 +41,9 @@ public abstract class Gun : MonoBehaviour
     protected float orginFOV;
     protected bool isAiming=false;
 
+    private BinaryFormatter bf = new BinaryFormatter();   // 二进制格式化程序
+    private FileStream fileStream;
+
     void Awake()
     {
         //find the enemy layer befored by "Shootable"
@@ -47,10 +52,24 @@ public abstract class Gun : MonoBehaviour
     }
 
     protected virtual void Start() {
+        if (PlayerPrefs.GetInt("Load", 0) == 1 && File.Exists(Application.dataPath + "/StreamingAssets/bin" +
+               PlayerPrefs.GetInt("Level", 0) + ".txt"))
+        {
+            fileStream = File.Open(Application.dataPath + "/StreamingAssets/bin" +
+                PlayerPrefs.GetInt("Level", 0) + ".txt", FileMode.Open);
+            Save readSave = (Save)bf.Deserialize(fileStream);
+            fileStream.Close();
+            currentAmmo = readSave.ammoNum;
+            currentMaxAmmoCarried = readSave.maxAmmoNum;
+        }
+        else
+        {
+            currentAmmo = AmmoInMag;
+            currentMaxAmmoCarried = MaxAmmoCarried;
+        }
+
         shootableMask = LayerMask.GetMask("Shootable");
         shootAudio = GetComponent<AudioSource>();
-        currentAmmo = AmmoInMag;
-        currentMaxAmmoCarried = MaxAmmoCarried;
         gunAnimator = GetComponent<Animator>();
         orginFOV = fpsCam.fieldOfView;
     }

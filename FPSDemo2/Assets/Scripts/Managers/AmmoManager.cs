@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+
 public class AmmoManager : MonoBehaviour
 {
     //the time to count
@@ -11,6 +12,7 @@ public class AmmoManager : MonoBehaviour
     public Text MaxAmmoText;
     public Gun gun;
     //public bool timeFlying = true;
+
 
     // Start is called before the first frame update
     void Start()

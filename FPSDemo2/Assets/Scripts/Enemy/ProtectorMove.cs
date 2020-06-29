@@ -6,13 +6,14 @@ public class ProtectorMove : MonoBehaviour
 {
     public Transform key;
     public Transform pos;
+    public int type;
 
     Transform player;
     PlayerHealth playerHealth;
     EnemyHealth enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
-    private float maxDis = 20f;
+    private float maxDis = 15f;
 
     void Awake()
     {

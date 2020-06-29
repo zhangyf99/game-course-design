@@ -15,11 +15,10 @@ TagManager:
   - MiniMap
   - Hint
   - InfoUI
-  - Metal
-  - Target
-  - ExplosiveBarrel
+  - MenuController
+  - EnemyController
+  - Fader
   - FX
-  - World
   layers:
   - Default
   - TransparentFX

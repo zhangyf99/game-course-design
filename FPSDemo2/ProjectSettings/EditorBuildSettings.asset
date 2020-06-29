@@ -9,15 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/menu.unity
     guid: a6564ea91faf04041a9a6bd7a7ff9447
   - enabled: 1
+    path: Assets/Scenes/Mail.unity
+    guid: 663a2e584cb51da4faa17c3f76ce9252
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 72f4a2cd6f2ed1e41b40c3c4c7f3e51f
+  - enabled: 1
     path: Assets/Scenes/Level 01.unity
     guid: cbd2213706bf14ddca50c03362035e2f
   - enabled: 1
     path: Assets/Scenes/Level 02.unity
     guid: eaa68aa8cc8a440bba7b79b519193a45
   - enabled: 1
-    path: Assets/Scenes/complete.unity
+    path: Assets/Scenes/Complete.unity
     guid: 2e4e199262a32fa4c918d847a678b430
-  - enabled: 1
-    path: Assets/Scenes/next.unity
-    guid: 04437cbeadc337b479155863598e710f
   m_configObjects: {}

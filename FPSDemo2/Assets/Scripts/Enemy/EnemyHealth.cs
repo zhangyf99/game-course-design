@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;
     //the sound to play when the enemy dies
     public AudioClip deathClip;
-    public bool isDead;
+    public bool isDead = false;
 
 
     Animator anim;

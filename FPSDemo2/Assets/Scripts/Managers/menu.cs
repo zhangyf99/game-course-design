@@ -1,30 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
-    public Text message;
-    public Text start;
+    public Text level_1;
+    public Text level_2;
     public Text exit;
-    public Text continued;
+    public GameObject panel;
     //public GameObject InfoUI;
 
-    private BinaryFormatter bf = new BinaryFormatter();   // 二进制格式化程序
-    private FileStream fileStream;
-
+    private bool isPanel = false;
     private int pos = 0;
 
-    private void Awake()
+    AudioSource changeClickAudio;
+
+    void Awake()
     {
-        message.text = "";
         Cursor.visible = false;
+        panel.SetActive(false);
         exit.GetComponent<Shadow>().enabled = false;
-        continued.GetComponent<Shadow>().enabled = false;
+        level_2.GetComponent<Shadow>().enabled = false;
+        GetComponent<menu>().enabled = true;
+        changeClickAudio = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -32,59 +31,13 @@ public class menu : MonoBehaviour
     {
         
     }
-    private void endMessage()
-    {
-        message.text = "";
-    }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            if(pos == 0)
-            {
-                Save save = new Save();
-                fileStream = File.Create(Application.dataPath + "/StreamingAssets/bin.txt");
-                bf.Serialize(fileStream, save);
-                fileStream.Close();
-                SceneManager.LoadScene("Level 01");
-                //GameObject.Find("InfoUI").SetActive(true);
-                //InfoUI.SetActive(true);
-                //GameObject.Find("HUDCanvas/InfoUI").SetActive(true);
-                //GameObject root = GameObject.Find("HUDCanvas");
-                //root.transform.Find("InfoUI").gameObject.SetActive(true);
-            }
-            else if(pos == 1)
-            {
-                if (File.Exists(Application.dataPath + "/StreamingAssets/bin.txt"))
-                {
-                    fileStream = File.Open(Application.dataPath + "/StreamingAssets/bin.txt", FileMode.Open);
-                    Save readSave = (Save)bf.Deserialize(fileStream);
-                    fileStream.Close();
-                    if (readSave.level >= 2)
-                    {
-                        message.text = "You have passed all levels";
-                        Invoke("endMessage", 1.0f);
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene("Level 0" + (readSave.level + 1).ToString());
-                        //GameObject.FindGameObjectWithTag("InfoUI").SetActive(true);
-                        //GameObject.Find("InfoUI").SetActive(true);
-                        //InfoUI.SetActive(true);
-                        //GameObject.Find("HUDCanvas/InfoUI").SetActive(true);
-                        //GameObject root = GameObject.Find("HUDCanvas");
-                        //root.transform.Find("InfoUI").gameObject.SetActive(true);
-                    }
-                }
-                else
-                {
-                    message.text = "No archived records";
-                    Invoke("endMessage", 1.0f);
-                }
-            }
-            else
+            if (pos == 2)
             {
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
@@ -92,15 +45,30 @@ public class menu : MonoBehaviour
                      Application.Quit();
 #endif
             }
+            else
+            {
+                PlayerPrefs.SetInt("Level", pos);
+                isPanel = true;
+                panel.SetActive(true);
+
+                //GameObject.Find("InfoUI").SetActive(true);
+                //InfoUI.SetActive(true);
+                //GameObject.Find("HUDCanvas/InfoUI").SetActive(true);
+                //GameObject root = GameObject.Find("HUDCanvas");
+                //root.transform.Find("InfoUI").gameObject.SetActive(true);*/
+            }
         }
-        if(Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            pos = (pos == 2) ? 0 : pos + 1;
-            show();
-        }
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            changeClickAudio.Play();
             pos = (pos == 0) ? 2 : pos - 1;
+            show();
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            changeClickAudio.Play();
+            pos = (pos == 2) ? 0 : pos + 1;
             show();
         }
     }
@@ -109,23 +77,24 @@ public class menu : MonoBehaviour
     {
         if (pos == 0)
         {
+            level_1.GetComponent<Shadow>().enabled = true;
+            level_2.GetComponent<Shadow>().enabled = false;
             exit.GetComponent<Shadow>().enabled = false;
-            continued.GetComponent<Shadow>().enabled = false;
-            start.GetComponent<Shadow>().enabled = true;
         }
         else if (pos == 1)
         {
-            continued.GetComponent<Shadow>().enabled = true;
-            start.GetComponent<Shadow>().enabled = false;
+            level_1.GetComponent<Shadow>().enabled = false;
+            level_2.GetComponent<Shadow>().enabled = true;
             exit.GetComponent<Shadow>().enabled = false;
         }
         else
         {
+            level_1.GetComponent<Shadow>().enabled = false;
+            level_2.GetComponent<Shadow>().enabled = false;
             exit.GetComponent<Shadow>().enabled = true;
-            start.GetComponent<Shadow>().enabled = false;
-            continued.GetComponent<Shadow>().enabled = false;
         }
     }
+
 
     /*
     public void start()

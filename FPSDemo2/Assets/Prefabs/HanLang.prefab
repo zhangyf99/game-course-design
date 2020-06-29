@@ -10131,7 +10131,7 @@ Transform:
   m_GameObject: {fileID: 8776351927170160284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 8776351927170321034}
   - {fileID: 8776351927170321026}
@@ -10218,7 +10218,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.38
-  m_Speed: 8
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -10340,7 +10340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
-  attackDamage: 20
+  attackDamage: 10
   hasAttackAnimation: 0
 --- !u!114 &374782142715810213
 MonoBehaviour:
@@ -10384,6 +10384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f3d6d122f57854aafe9b9fec1982e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treasure: {fileID: 1529357387614488, guid: 600b6cdd0c29238458eef7f3bab2d727, type: 3}
 --- !u!1 &8776351927170160286
 GameObject:
   m_ObjectHideFlags: 0

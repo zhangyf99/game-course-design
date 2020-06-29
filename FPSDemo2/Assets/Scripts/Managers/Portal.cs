@@ -9,7 +9,10 @@ public class Portal : MonoBehaviour
     public float rotateSpeed = 50f;
     //public int portalDamage = 20;
     //public float destroyTime = 15f;
-    public EnemyHealth protectorHealth;
+    public GameObject protector = null;
+    public bool dead = false;
+
+    public EnemyHealth protectorHealth = null;
 
     /*
     private PortalManager portalManager;
@@ -33,6 +36,11 @@ public class Portal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(protector != null)
+        {
+            protectorHealth = protector.GetComponent<EnemyHealth>();
+        }
+        
         /*
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         portalManager = GameObject.FindGameObjectWithTag("portalController").GetComponent<PortalManager>();
@@ -62,11 +70,15 @@ public class Portal : MonoBehaviour
     void Update()
     {
         transform.Rotate(Vector3.up * Time.deltaTime * rotateSpeed);
+        if(!dead && protectorHealth.currentHealth <= 0)
+        {
+            dead = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(protectorHealth.currentHealth <= 0 && other.tag == "Player")
+        if(dead && other.tag == "Player")
         {
             /*
             if(isPortal)
@@ -83,7 +95,7 @@ public class Portal : MonoBehaviour
             portalManager.hasGenerated[index] = false;
             portalManager.exist--;
             */
-
+ 
             GameObject.FindGameObjectWithTag("portalController").GetComponent<PortalManager>().keyGet++;
             Destroy(gameObject);
         }
